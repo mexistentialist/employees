@@ -1,9 +1,18 @@
+<h1>Employees</h1>
+<h3><%= link_to "New Employee", "/employees/new"%>
+<hr>
+<h2><%=@employee.full_name%></h2>
 <ul>
-	<li><%=@employee.first_name%></li>
-	<li><%=@employee.last_name%></li>
 	<li><%=@employee.email%></li>
 	<li><%=@employee.job_title%></li>
 	<li><%=@employee.salary%></li>
-	<li><%=@employee.phone_number%></li>
+	<li><%=@employee.friendly_number%></li>
+ 	<li><%= @employee.japan_number %></li>
 	<li><%=@employee.gender%></li>
+	<img src="<%=@employee.image%>">
+
 </ul>
+
+<%= link_to "Home", "/"%>
+<%= link_to "Edit", "/employees/#{@employee.id}/edit"%>
+<%= link_to "Destroy", "/employees/#{@employee.id}", method: :delete, data:{confirm: "Are you sure?"} %>

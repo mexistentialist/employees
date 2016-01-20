@@ -1,14 +1,22 @@
 <h1>All of our employees</h1>
 
+<%= link_to "Add a new Employee", "/employees/new" %>
+
+<div class ="row">
+
 <% @employees.each do |employee| %>
-<ul>
-	<li><%= link_to employee.first_name, "/employees/#{employee.id}"%></li>
-	<li><%=employee.last_name%></li>
-	<li><%=employee.email%></li>
-	<li><%=employee.job_title%></li>
-	<li><%=employee.salary%></li>
-	<li><%=employee.phone_number%></li>
-	<li><%=employee.gender%></li>
-</ul>
-<br/>
-<% end %>
+		<div class = "col-md-1-offset col-md-3 list-view">
+			<div class = "thumbnail">
+			<h2><%=@full_name%>
+			<%= link_to employee.full_name, "/employees/#{employee.id}"%></h2>
+			<h3><%=employee.email%></h3>
+			<h3><%=employee.job_title%></h3>
+			<h3><%=employee.salary%></h3>
+			<h3><%=employee.friendly_number%></h3>
+			<h3><%=employee.gender%></h3>
+			<img src="<%=employee.image%>">
+			<h5><%= employee.friendly_time %></h5>
+			</div>
+		</div>
+	<% end %>
+</div>

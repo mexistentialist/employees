@@ -16,11 +16,15 @@ class EmployeesController < ApplicationController
 								phone_number: params[:phone_number],
 								gender: params[:gender]
 								})
+		flash[:success] = "New employee added"
+
+		redirect_to "/"
 	end
 
 
 	def show
 		@employee = Employee.find(params[:id])
+		
 	end
 
 	def edit
@@ -37,11 +41,15 @@ class EmployeesController < ApplicationController
 						phone_number: params[:phone_number],
 						gender: params[:gender]
 						})
+
+		redirect_to "/employees/#{@employee.id}"
 	end
 
 	def destroy
 		@employee = Employee.find(params[:id])
 		@employee.destroy
+		redirect_to "/"
+		flash[:warning] = "Employee discharged"
 	end
 
 end
