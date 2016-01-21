@@ -9,12 +9,14 @@ class EmployeesController < ApplicationController
 
 	def create
 		@employee = Employee.create({first_name: params[:first_name], 
+								middle: params[:middle],
 								last_name: params[:last_name], 
 								email: params[:email], 
 								job_title: params[:job_title],
 								salary: params[:salary],
 								phone_number: params[:phone_number],
-								gender: params[:gender]
+								gender: params[:gender],
+								bio: params[:bio]
 								})
 		flash[:success] = "New employee added"
 
@@ -33,13 +35,14 @@ class EmployeesController < ApplicationController
 
 	def update
 		@employee = Employee.find(params[:id])
-		@employee.update({first_name: params[:first_name], 
+		@employee.update({first_name: params[:first_name], 			middle: params[:middle],
 						last_name: params[:last_name], 
 						email: params[:email], 
 						job_title: params[:job_title],
 						salary: params[:salary],
 						phone_number: params[:phone_number],
-						gender: params[:gender]
+						gender: params[:gender], 
+						bio: params[:bio]
 						})
 
 		redirect_to "/employees/#{@employee.id}"

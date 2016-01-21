@@ -5,7 +5,7 @@ class Employee < ActiveRecord::Base
 	end
 
 	def full_name
-		"#{first_name} #{last_name}"
+		"#{first_name} #{middle} #{last_name}"
 		
 	end
 
@@ -17,6 +17,11 @@ class Employee < ActiveRecord::Base
 
 	def japan_number
 		"+81 #{friendly_number}"
+		#ACLTC METHOD: 
+		# if phone_number.starts_with?("1")
+		# phone.sub!("1", "")
+		# phone.gsub!(/\D/, "")
+		# phone.insert(4, " ")
 	end
 
 end
