@@ -6,6 +6,7 @@
 <ul>
 	<li><%=@employee.email%></li>
 	<li><%=@employee.job_title%></li>
+	<li><%= @employee.address %></li>
 	<li><%=@employee.salary%></li>
 	<li><%= @employee.japan_number %></li>
 	<li><%=@employee.gender%></li>
@@ -13,6 +14,12 @@
 </ul>
 
 <p><%= @employee.bio %></p>
+
+<h5>Groups:</h5>
+<ul><% @groups.each do |group| %>
+	<li><%= link_to group.name.titleize, "/employees?group=#{group.name}" %></li>
+<% end %>
+</ul>
 
 <%= link_to "Home", "/"%>
 <%= link_to "Edit", "/employees/#{@employee.id}/edit"%>

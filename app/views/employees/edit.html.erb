@@ -26,6 +26,11 @@
 		<%= text_field_tag :job_title, @employee.job_title %>
 	</div>
 
+	<div> 
+		<%= label_tag :address %>
+		<%= text_field_tag :address, @employee.address %>
+	</div>
+
 	<div>
 		<%= label_tag :salary %>
 		<%= text_field_tag :salary, @employee.salary %>
@@ -45,6 +50,12 @@
 		<%= label_tag :bio %>
 		<%= text_area_tag :bio, @employee.bio %>
 	</div>
+
+	<div>
+	<%= label_tag :group %>
+	<%= text_area_tage :group %>
+	</div>
+
 	<%=submit_tag "Update" %>
 
 <% end %>
